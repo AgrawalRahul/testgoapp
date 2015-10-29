@@ -25,7 +25,7 @@ type UserOne struct {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
-	db, err := sql.Open("mysql", "veeru:rahulhcs123*@tcp(173.194.239.224:3306)/testapp")
+	db, err := sql.Open("mysql", "root@cloudsql(testgoapp-1113:rahul)/testapp")
 	
 	checkErr(err, "DB Connection failed", c)
 
