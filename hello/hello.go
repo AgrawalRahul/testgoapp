@@ -10,7 +10,7 @@ import (
 
 	"gopkg.in/gorp.v1"
 
-	_ "github.com/go-sql-driver/mysql"
+	 _ "github.com/ziutek/mymysql/godrv"
 )
 
 func init() {
@@ -25,7 +25,9 @@ type UserOne struct {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
-	db, err := sql.Open("mysql", "root@cloudsql(testgoapp-1113:rahul)/testapp")
+	db, err := sql.Open("mymysql", "cloudsql:testgoapp-1113:rahul*testapp/root/")
+	
+	
 	
 	checkErr(err, "DB Connection failed", c)
 
